@@ -11,12 +11,17 @@ import './app.scss';
 
 const App = () => {
   const level = 0;
+  const randomIndex = Math.floor(Math.random() * Math.floor(6));
+  const questionBird = birdsData[level][randomIndex];
+  const isCorrectAnswer = false;
 
   return (
     <div className="app">
       <Header />
       <main>
-        <Question />
+        <Question
+          isCorrectAnswer={isCorrectAnswer}
+          questionBird={questionBird} />
         <Answers birdsList={birdsData[level]} />
         <ButtonNext />
       </main>
