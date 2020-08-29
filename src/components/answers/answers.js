@@ -5,7 +5,20 @@ import Details from '../details/details';
 import './answers.scss';
 
 const Answers = (props) => {
-  const { birdsList, questionBird, isCorrectAnswer, setIsCorrectAnswer, selectedBird, setSelectedBird } = props;
+  const {
+    birdsList,
+    questionBird,
+    isCorrectAnswer,
+    setIsCorrectAnswer,
+    selectedBird,
+    setSelectedBird,
+    levelScore,
+    setLevelScore,
+    score,
+    setScore,
+    needRerender,
+    setNeedRerender,
+  } = props;
 
   return (
     <div className="answers">
@@ -14,7 +27,13 @@ const Answers = (props) => {
         questionBird={questionBird}
         isCorrectAnswer={isCorrectAnswer}
         setIsCorrectAnswer={setIsCorrectAnswer}
-        setSelectedBird={setSelectedBird} />
+        setSelectedBird={setSelectedBird}
+        levelScore={levelScore}
+        setLevelScore={setLevelScore}
+        score={score}
+        setScore={setScore}
+        needRerender={needRerender}
+        setNeedRerender={setNeedRerender} />
       <Details selectedBird={selectedBird} />
     </div>
   );

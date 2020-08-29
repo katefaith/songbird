@@ -10,15 +10,20 @@ import birdsData from '../../birds-data';
 import './app.scss';
 
 const App = () => {
-  const level = 0;
+  const [level, setLevel] = useState(0);
+  const [levelScore, setLevelScore] = useState(5);
+  const [score, setScore] = useState(0);
   const randomIndex = Math.floor(Math.random() * Math.floor(6));
   const [questionBird, setQuestionBird] = useState(birdsData[level][randomIndex]);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const [selectedBird, setSelectedBird] = useState(null);
+  const [needRerender, setNeedRerender] = useState(false);
 
   return (
     <div className="app">
-      <Header />
+      <Header
+        level={level}
+        score={score}/>
       <main>
         <Question
           isCorrectAnswer={isCorrectAnswer}
@@ -29,8 +34,25 @@ const App = () => {
           setSelectedBird={setSelectedBird}
           questionBird={questionBird}
           isCorrectAnswer={isCorrectAnswer}
-          setIsCorrectAnswer={setIsCorrectAnswer} />
-        <ButtonNext />
+          setIsCorrectAnswer={setIsCorrectAnswer}
+          levelScore={levelScore}
+          setLevelScore={setLevelScore}
+          score={score}
+          setScore={setScore}
+          needRerender={needRerender}
+          level={level}
+          setNeedRerender={setNeedRerender}/>
+
+        <ButtonNext
+          isCorrectAnswer={isCorrectAnswer}
+          setIsCorrectAnswer={setIsCorrectAnswer}
+          level={level}
+          setLevel={setLevel}
+          setQuestionBird={setQuestionBird}
+          birdsData={birdsData}
+          setSelectedBird={setSelectedBird}
+          setLevelScore={setLevelScore}
+          setNeedRerender={setNeedRerender} />
       </main>
     </div>
   );
