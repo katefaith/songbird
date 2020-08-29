@@ -3,6 +3,14 @@ import React from 'react';
 import './details.scss';
 
 const Details = ({ selectedBird }) => {
+  if (selectedBird == null) {
+    return (
+      <div className="details">
+        <p>Послушайте плеер и выберите птицу из списка</p>
+      </div>
+    );
+  }
+
   return (
     <div className="details">
       <div className="details__info">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Header from '../header/header';
 import Question from '../question/question';
@@ -12,8 +12,9 @@ import './app.scss';
 const App = () => {
   const level = 0;
   const randomIndex = Math.floor(Math.random() * Math.floor(6));
-  const questionBird = birdsData[level][randomIndex];
-  const isCorrectAnswer = false;
+  const [questionBird, setQuestionBird] = useState(birdsData[level][randomIndex]);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const [selectedBird, setSelectedBird] = useState(null);
 
   return (
     <div className="app">
@@ -22,7 +23,13 @@ const App = () => {
         <Question
           isCorrectAnswer={isCorrectAnswer}
           questionBird={questionBird} />
-        <Answers birdsList={birdsData[level]} />
+        <Answers
+          birdsList={birdsData[level]}
+          selectedBird={selectedBird}
+          setSelectedBird={setSelectedBird}
+          questionBird={questionBird}
+          isCorrectAnswer={isCorrectAnswer}
+          setIsCorrectAnswer={setIsCorrectAnswer} />
         <ButtonNext />
       </main>
     </div>
