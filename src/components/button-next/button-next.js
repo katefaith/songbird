@@ -28,6 +28,7 @@ const ButtonNext = (props) => {
 
   return (
     <button
+      disabled={!isCorrectAnswer}
       className={(isCorrectAnswer) ? 'button  button--active' : 'button'}
       onClick={goToNextLevel}>
       Дальше

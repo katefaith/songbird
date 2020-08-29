@@ -1,10 +1,10 @@
 .button {
   width: 100%;
   padding: 10px 20px;
-  margin-bottom: 30px;;
+  margin-bottom: 30px;
   border: 1px solid #505050;
   border-radius: 5px;
-  background-color: #333;
+  background-color: LightSeaGreen;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -13,12 +13,13 @@
     outline: none;
   }
 
-  &--active {
-    background-color: LightSeaGreen;
+  &:hover {
+    background-color: MediumTurquoise;
     cursor: pointer;
+  }
 
-    &:hover {
-      background-color: MediumTurquoise;
-    }
+  &[disabled] {
+    background-color: #333;
+    cursor: not-allowed;
   }
 }
