@@ -8,7 +8,7 @@ import '../audio-player.scss';
 
 import './question.scss';
 
-const Question = ({ isCorrectAnswer, questionBird, audioPlayer }) => {
+const Question = ({ isCorrectAnswer, questionBird, audioPlayer, detailsAudioPlayer }) => {
 
   return (
     <div className="question">
@@ -26,7 +26,10 @@ const Question = ({ isCorrectAnswer, questionBird, audioPlayer }) => {
           src={questionBird.audio}
           autoPlayAfterSrcChange={false}
           loop={true}
-          ref={audioPlayer} />
+          ref={audioPlayer}
+          onPlay={() => {
+            if (detailsAudioPlayer.current) detailsAudioPlayer.current.audio.current.pause();
+          }} />
       </div>
     </div>
   );

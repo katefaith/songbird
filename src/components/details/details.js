@@ -5,7 +5,7 @@ import './details.scss';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
 
-const Details = ({ selectedBird }) => {
+const Details = ({ selectedBird, audioPlayer, detailsAudioPlayer }) => {
   if (selectedBird == null) {
     return (
       <div className="details">
@@ -28,7 +28,9 @@ const Details = ({ selectedBird }) => {
           <p>{selectedBird.species}</p>
           <AudioPlayer
             src={selectedBird.audio}
-            autoPlayAfterSrcChange={false} />
+            ref={detailsAudioPlayer}
+            autoPlayAfterSrcChange={false}
+            onPlay={() => audioPlayer.current.audio.current.pause()} />
         </div>
       </div>
       <p className="details__descr">{selectedBird.description}</p>

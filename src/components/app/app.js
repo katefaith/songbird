@@ -21,6 +21,7 @@ const App = () => {
   const [selectedBird, setSelectedBird] = useState(null);
   const [needRerender, setNeedRerender] = useState(false);
   const audioPlayer = createRef();
+  const detailsAudioPlayer = createRef();
 
   console.log('questionBird', questionBird);
 
@@ -38,7 +39,8 @@ const App = () => {
             <Question
               isCorrectAnswer={isCorrectAnswer}
               questionBird={questionBird}
-              audioPlayer={audioPlayer} />
+              audioPlayer={audioPlayer}
+              detailsAudioPlayer={detailsAudioPlayer} />
 
             <div className="answers">
               <AnswersList
@@ -54,7 +56,10 @@ const App = () => {
                 needRerender={needRerender}
                 setNeedRerender={setNeedRerender}
                 audioPlayer={audioPlayer} />
-              <Details selectedBird={selectedBird} />
+              <Details
+                selectedBird={selectedBird}
+                audioPlayer={audioPlayer}
+                detailsAudioPlayer={detailsAudioPlayer} />
             </div>
           </>}
 
