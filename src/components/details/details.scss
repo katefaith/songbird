@@ -9,7 +9,7 @@
   border-radius: 5px;
   background-color: #333;
 
-  @media(max-width: 768px) {
+  @media(max-width: 1000px) {
     flex-basis: 100%;
     width: 100%;
   }
@@ -39,17 +39,19 @@
 .details__names {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex-grow: 1;
 
   h2 {
     margin: 0 10px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #505050;
+    font-size: 2rem;
   }
 
-  h3 {
-    margin: 12px 10px;
-    padding-bottom: 10px;
+  p {
+    margin: 5px 10px;
+    font-style: italic;
   }
 
   audio{

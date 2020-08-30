@@ -2,6 +2,9 @@ import React from 'react';
 
 import './details.scss';
 
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+
 const Details = ({ selectedBird }) => {
   if (selectedBird == null) {
     return (
@@ -22,16 +25,15 @@ const Details = ({ selectedBird }) => {
           alt={selectedBird.name} />
         <div className="details__names">
           <h2>{selectedBird.name}</h2>
-          <h3>{selectedBird.species}</h3>
-          <audio controls>
-            <source src={selectedBird.audio} type="audio/mpeg" />
-          </audio>
+          <p>{selectedBird.species}</p>
+          <AudioPlayer
+            src={selectedBird.audio}
+            autoPlayAfterSrcChange={false} />
         </div>
       </div>
       <p className="details__descr">{selectedBird.description}</p>
     </div>
   );
-
 }
 
 export default Details;

@@ -20,7 +20,8 @@ const AnswersList = (props) => {
     score,
     setScore,
     setNeedRerender,
-    needRerender
+    needRerender,
+    audioPlayer
   } = props;
 
   const [classesForIndicatores, setClassesForIndicators] = useState(classes);
@@ -49,6 +50,7 @@ const AnswersList = (props) => {
         setClassesForIndicators(tempArr);
         setScore(score + levelScore);
         playAudio(correct);
+        audioPlayer.current.audio.current.pause();
       } else {
         tempArr[key] = tempArr[key] + ' answers-list__indicator--wrong';
         setClassesForIndicators(tempArr);

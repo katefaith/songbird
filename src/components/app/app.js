@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 
 import Header from '../header/header';
 import Question from '../question/question';
@@ -20,6 +20,7 @@ const App = () => {
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const [selectedBird, setSelectedBird] = useState(null);
   const [needRerender, setNeedRerender] = useState(false);
+  const audioPlayer = createRef();
 
   console.log('questionBird', questionBird);
 
@@ -36,7 +37,8 @@ const App = () => {
           : <>
             <Question
               isCorrectAnswer={isCorrectAnswer}
-              questionBird={questionBird} />
+              questionBird={questionBird}
+              audioPlayer={audioPlayer} />
 
             <div className="answers">
               <AnswersList
@@ -50,7 +52,8 @@ const App = () => {
                 score={score}
                 setScore={setScore}
                 needRerender={needRerender}
-                setNeedRerender={setNeedRerender} />
+                setNeedRerender={setNeedRerender}
+                audioPlayer={audioPlayer} />
               <Details selectedBird={selectedBird} />
             </div>
           </>}

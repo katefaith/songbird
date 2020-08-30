@@ -25,6 +25,9 @@
 }
 
 .question__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
 
   audio {
@@ -38,7 +41,7 @@
 }
 
 .question__heading {
-  margin: 0 10px 30px;
-  padding-bottom: 20px;
+  margin: 0 10px 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid #505050;
 }

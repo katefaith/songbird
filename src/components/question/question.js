@@ -2,9 +2,13 @@ import React from 'react';
 
 import bird from './images/bird.jpg'
 
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+import '../audio-player.scss';
+
 import './question.scss';
 
-const Question = ({ isCorrectAnswer, questionBird }) => {
+const Question = ({ isCorrectAnswer, questionBird, audioPlayer }) => {
 
   return (
     <div className="question">
@@ -18,9 +22,11 @@ const Question = ({ isCorrectAnswer, questionBird }) => {
         <h2 className="question__heading">
           {(isCorrectAnswer) ? questionBird.name : '*****'}
         </h2>
-        <audio controls>
-          <source src={questionBird.audio} type="audio/mpeg" />
-        </audio>
+        <AudioPlayer
+          src={questionBird.audio}
+          autoPlayAfterSrcChange={false}
+          loop={true}
+          ref={audioPlayer} />
       </div>
     </div>
   );
