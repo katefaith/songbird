@@ -1,0 +1,18 @@
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @media (max-width: 1100px) {
+    width: 90%;
+  }
+}
+
+.answers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  @media(max-width: 1000px) {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,19 @@
+.rhap_container  {
+  box-shadow: none;
+  border-radius: 5px;
+  background-color: #333;
+  border-color: #333;
+  outline: none;
+}
+
+.rhap_time {
+  color: #fff;
+}
+
+.rhap_repeat-button,
+.rhap_main-controls-button,
+.rhap_volume-button,
+.rhap_volume-bar-area,
+.rhap_progress-container {
+  outline: none;
+}
