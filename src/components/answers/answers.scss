@@ -1,9 +1,0 @@
-.answers {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-
-  @media(max-width: 768px) {
-    flex-wrap: wrap;
-  }
-}

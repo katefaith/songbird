@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 
 import Header from '../header/header';
 import Question from '../question/question';
-import Answers from '../answers/answers';
+import AnswersList from '../answers-list/answers-list';
+import Details from '../details/details';
 import ButtonNext from '../button-next/button-next';
 
 import birdsData from '../../birds-data';
@@ -24,24 +25,27 @@ const App = () => {
       <Header
         level={level}
         score={score}/>
+
       <main>
         <Question
           isCorrectAnswer={isCorrectAnswer}
           questionBird={questionBird} />
-        <Answers
-          birdsList={birdsData[level]}
-          selectedBird={selectedBird}
-          setSelectedBird={setSelectedBird}
-          questionBird={questionBird}
-          isCorrectAnswer={isCorrectAnswer}
-          setIsCorrectAnswer={setIsCorrectAnswer}
-          levelScore={levelScore}
-          setLevelScore={setLevelScore}
-          score={score}
-          setScore={setScore}
-          needRerender={needRerender}
-          level={level}
-          setNeedRerender={setNeedRerender}/>
+
+          <div className="answers">
+            <AnswersList
+              birdsList={birdsData[level]}
+              questionBird={questionBird}
+              isCorrectAnswer={isCorrectAnswer}
+              setIsCorrectAnswer={setIsCorrectAnswer}
+              setSelectedBird={setSelectedBird}
+              levelScore={levelScore}
+              setLevelScore={setLevelScore}
+              score={score}
+              setScore={setScore}
+              needRerender={needRerender}
+              setNeedRerender={setNeedRerender} />
+            <Details selectedBird={selectedBird} />
+          </div>
 
         <ButtonNext
           isCorrectAnswer={isCorrectAnswer}
